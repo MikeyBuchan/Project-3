@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class R_MenuUI : MonoBehaviour
 {
@@ -45,5 +46,30 @@ public class R_MenuUI : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("Pressed the quit button");
+    }
+
+    public void Level(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                //Assign scene
+                break;
+            case 1:
+                //Assign scene
+                break;
+            case 2:
+                //Assign scene
+                break;
+            case 3:
+                //Assign scene
+                break;
+            case 4:
+                //Assign scene
+                break;
+            default:
+                Debug.Log("ERROR: Invalid index!");
+                break;
+        }
     }
 }
