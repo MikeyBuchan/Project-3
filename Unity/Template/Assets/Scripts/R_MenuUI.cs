@@ -7,6 +7,11 @@ public class R_MenuUI : MonoBehaviour
 {
     public GameObject menuPanel;
     public GameObject levelSelectPanel;
+    public string level1Name;
+    public string level2Name;
+    public string level3Name;
+    public string level4Name;
+    public string level5Name;
 
     void Start()
     {
@@ -53,19 +58,19 @@ public class R_MenuUI : MonoBehaviour
         switch (index)
         {
             case 0:
-                //Assign scene
+                SceneManager.LoadScene(level1Name);
                 break;
             case 1:
-                //Assign scene
+                SceneManager.LoadScene(level2Name);
                 break;
             case 2:
-                //Assign scene
+                SceneManager.LoadScene(level3Name);
                 break;
             case 3:
-                //Assign scene
+                SceneManager.LoadScene(level4Name);
                 break;
             case 4:
-                //Assign scene
+                SceneManager.LoadScene(level5Name);
                 break;
             default:
                 Debug.Log("ERROR: Invalid index!");
