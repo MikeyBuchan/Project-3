@@ -7,18 +7,16 @@ public class R_MenuUI : MonoBehaviour
 {
     public GameObject menuPanel;
     public GameObject levelSelectPanel;
-    public string level1Name;
-    public string level2Name;
-    public string level3Name;
-    public string level4Name;
-    public string level5Name;
+    public List<string> levelNames = new List<string>();
+    public List<bool> levelLock = new List<bool>();
 
     void Start()
     {
         if (menuPanel != null)
         {
             menuPanel.SetActive(true);
-        } else
+        }
+        else
         {
             Debug.Log("ERROR: menuPanel missing!");
         }
@@ -26,7 +24,8 @@ public class R_MenuUI : MonoBehaviour
         if (levelSelectPanel != null)
         {
             levelSelectPanel.SetActive(false);
-        } else
+        }
+        else
         {
             Debug.Log("ERROR: levelSelectPanel missing!");
         }
@@ -55,27 +54,32 @@ public class R_MenuUI : MonoBehaviour
 
     public void Level(int index)
     {
-        switch (index)
+        if (levelLock[index] != true)
         {
-            case 0:
-                SceneManager.LoadScene(level1Name);
-                break;
-            case 1:
-                SceneManager.LoadScene(level2Name);
-                break;
-            case 2:
-                SceneManager.LoadScene(level3Name);
-                break;
-            case 3:
-                SceneManager.LoadScene(level4Name);
-                break;
-            case 4:
-                SceneManager.LoadScene(level5Name);
-                break;
-            default:
-                Debug.Log("ERROR: Invalid index!");
-                break;
+            switch (index)
+            {
+                case 0:
+                    SceneManager.LoadScene(levelNames[0]);
+                    break;
+                case 1:
+                    SceneManager.LoadScene(levelNames[1]);
+                    break;
+                case 2:
+                    SceneManager.LoadScene(levelNames[2]);
+                    break;
+                case 3:
+                    SceneManager.LoadScene(levelNames[3]);
+                    break;
+                case 4:
+                    SceneManager.LoadScene(levelNames[4]);
+                    break;
+                default:
+                    Debug.Log("ERROR: Invalid index!");
+                    break;
+            }
+        } else
+        {
+            Debug.Log("This level is locked!");
         }
     }
 }
-    
