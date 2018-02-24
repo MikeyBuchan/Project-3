@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class T_ShopScript : MonoBehaviour
 {
+    public GameObject shopUI;
+
     public GameObject player;
     public GameObject shopCamera;
     public float shopRange;
@@ -28,6 +30,7 @@ public class T_ShopScript : MonoBehaviour
                 shopCamera.SetActive(true);
                 player.SetActive(false);
                 inShop = true;
+                shopUI.SetActive(true);
 
                 nearShopText.GetComponent<Text>().text = "Press space to exit shop";
             }         
@@ -36,6 +39,7 @@ public class T_ShopScript : MonoBehaviour
                 player.SetActive(true);
                 shopCamera.SetActive(false);
                 inShop = false;
+                shopUI.SetActive(false);
 
                 nearShopText.GetComponent<Text>().text = "Press space to enter shop";
             }
@@ -45,4 +49,17 @@ public class T_ShopScript : MonoBehaviour
             nearShopText.SetActive(false);
         }
 	}
+
+    public void BuyBombTower ()
+    {
+        player.GetComponent<T_Inventory>().bombTowers += 1;
+    }
+    public void BuySniperTower()
+    {
+        player.GetComponent<T_Inventory>().sniperTowers += 1;
+    }
+    public void BuyMachineGunTower()
+    {
+        player.GetComponent<T_Inventory>().machinegunTowers += 1;
+    }
 }
