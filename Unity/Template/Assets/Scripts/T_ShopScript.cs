@@ -53,13 +53,16 @@ public class T_ShopScript : MonoBehaviour
     public void BuyBombTower ()
     {
         player.GetComponent<T_Inventory>().bombTowers += 1;
+        player.GetComponent<T_Inventory>().bombUI.GetComponent<Text>().text = player.GetComponent<T_Inventory>().bombTowers.ToString();
     }
     public void BuySniperTower()
     {
         player.GetComponent<T_Inventory>().sniperTowers += 1;
+        player.GetComponent<T_Inventory>().sniperUI.GetComponent<Text>().text = player.GetComponent<T_Inventory>().sniperTowers.ToString();
     }
     public void BuyMachineGunTower()
     {
         player.GetComponent<T_Inventory>().machinegunTowers += 1;
+        player.GetComponent<T_Inventory>().machinegunUI.GetComponent<Text>().text = player.GetComponent<T_Inventory>().machinegunTowers.ToString();
     }
 }
