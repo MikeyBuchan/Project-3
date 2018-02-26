@@ -12,7 +12,7 @@ public class R_MenuUI : MonoBehaviour
 
     void Start()
     {
-        
+
         if (menuPanel != null)
         {
             menuPanel.SetActive(true);
@@ -78,7 +78,8 @@ public class R_MenuUI : MonoBehaviour
                     Debug.Log("ERROR: Invalid index!");
                     break;
             }
-        } else
+        }
+        else
         {
             Debug.Log("This level is locked!");
         }
