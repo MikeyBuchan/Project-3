@@ -6,19 +6,26 @@ using UnityEngine.UI;
 public class T_ShopScript : MonoBehaviour
 {
     public GameObject shopUI;
+    public GameObject fundsUI;
 
     public GameObject player;
-    public T_Inventory inventory;
+    private T_Inventory inventory;
     public GameObject shopCamera;
     public float shopRange;
 
     private bool inShop = false;
     public GameObject nearShopText;
 
+    public int bombTowerCost;
+    public int sniperTowerCost;
+    public int machinegunTowerCost;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         inventory = player.GetComponent<T_Inventory>();
+
+        fundsUI.GetComponent<Text>().text = "Funds : " + inventory.funds;
     }
 
     void Update()
@@ -54,17 +61,35 @@ public class T_ShopScript : MonoBehaviour
 
     public void BuyBombTower()
     {
-        inventory.bombTowers += 1;
-        inventory.bombUI.GetComponent<Text>().text = player.GetComponent<T_Inventory>().bombTowers.ToString();
+        if(player.GetComponent<T_Inventory>().funds >= bombTowerCost)
+        {
+            inventory.bombTowers += 1;
+            inventory.bombUI.GetComponent<Text>().text = player.GetComponent<T_Inventory>().bombTowers.ToString();
+
+            player.GetComponent<T_Inventory>().funds -= bombTowerCost;
+            fundsUI.GetComponent<Text>().text = "Funds : " + inventory.funds;
+        }
     }
     public void BuySniperTower()
     {
-        inventory.sniperTowers += 1;
-        inventory.sniperUI.GetComponent<Text>().text = player.GetComponent<T_Inventory>().sniperTowers.ToString();
+        if(player.GetComponent<T_Inventory>().funds >= sniperTowerCost)
+        {
+            inventory.sniperTowers += 1;
+            inventory.sniperUI.GetComponent<Text>().text = player.GetComponent<T_Inventory>().sniperTowers.ToString();
+
+            player.GetComponent<T_Inventory>().funds -= sniperTowerCost;
+            fundsUI.GetComponent<Text>().text = "Funds : " + inventory.funds;
+        }
     }
     public void BuyMachineGunTower()
     {
-        inventory.machinegunTowers += 1;
-        inventory.machinegunUI.GetComponent<Text>().text = player.GetComponent<T_Inventory>().machinegunTowers.ToString();
+        if(player.GetComponent<T_Inventory>().funds >= machinegunTowerCost)
+        {
+            inventory.machinegunTowers += 1;
+            inventory.machinegunUI.GetComponent<Text>().text = player.GetComponent<T_Inventory>().machinegunTowers.ToString();
+
+            player.GetComponent<T_Inventory>().funds -= machinegunTowerCost;
+            fundsUI.GetComponent<Text>().text = "Funds : " + inventory.funds;
+        }
     }
 }
