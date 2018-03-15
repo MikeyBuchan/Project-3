@@ -11,7 +11,10 @@ public class G_WaterScript : MonoBehaviour {
 	public Texture2D ability1;
 	public Texture2D ability1CD;
 	float ability1Timer = 0;
-	public float ability1CDtimer;
+	public float ability1CDTimer;
+	public float timer = 0;
+	public float newSpeed;
+
 
 	// Use this for initialization
 	void Start () {
@@ -19,16 +22,20 @@ public class G_WaterScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		timer += Time.deltaTime;
 		if (Time.time > nextUseTimer) {
 		if (Input.GetButtonDown ("Ability 1")){
 		agent = gameObject.GetComponent<NavMeshAgent>();
 		agent.speed = slowedSpeed;
 		nextUseTimer = Time.time + cooldownTimer;
-		ability1Timer = ability1CDtimer;
+		ability1Timer = ability1CDTimer;
 		ability1Timer -= Time.deltaTime;
-			}
+				}
 		}
+		if (timer >5){
+		agent.speed = newSpeed;
 	}
+}
 	void OnGUI () {
 		bool ability1Button = Input.GetButtonDown ("Ability 1");
 		if (ability1Timer <= 0 )
@@ -40,7 +47,11 @@ public class G_WaterScript : MonoBehaviour {
 		} else {
 			GUI.Label(new Rect( 10, 10, 50, 50), ability1CD);
 			}
+			if (timer >20) {
+				GUI.Label(new Rect( 10, 10, 50, 50), ability1);
+				timer =0;
 		}
+	}
 	void AbilityOne () {
 			}
 	}
