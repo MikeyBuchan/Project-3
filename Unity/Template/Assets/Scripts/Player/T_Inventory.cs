@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class T_Inventory : MonoBehaviour
 {
+    public int health;
     public int funds;
 
     public int bombTowers;
