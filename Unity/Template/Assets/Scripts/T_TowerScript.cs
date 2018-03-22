@@ -4,28 +4,14 @@ using UnityEngine;
 
 public class T_TowerScript : MonoBehaviour
 {
-    public GameObject closestEnemy;
-    public GameObject secondEnemy;
-
-    private int enemiesInRange;
+    public Transform closestEnemy;
+    public List<Transform> enemies;
 
     private void OnTriggerEnter(Collider c)
     {      
-        if(c.gameObject.tag == "Enemy" && closestEnemy == null)
+        if(c.gameObject.tag == "Enemy")
         {
-            closestEnemy = c.gameObject;
-            enemiesInRange++;
-        }
-        else if(c.gameObject.tag == "Enemy" && closestEnemy != null)
-        {
-            secondEnemy = c.gameObject;
-            enemiesInRange++;
-        }
-
-        if (secondEnemy != null && closestEnemy != null && Vector3.Distance(transform.position, secondEnemy.transform.position) > Vector3.Distance(transform.position, closestEnemy.transform.position))
-        {
-            closestEnemy = secondEnemy;
-            secondEnemy = null;
+            enemies.Add(c.gameObject.transform);
         }
     }
 
@@ -33,15 +19,31 @@ public class T_TowerScript : MonoBehaviour
     {
         if(other.gameObject.tag == "Enemy")
         {
-            enemiesInRange--;
+            enemies.Remove(other.gameObject.transform);
         }
     }
 
     void Update () 
 	{
-        if(enemiesInRange >= 1)
+        if(enemies.Count > 0)
         {
-            transform.LookAt(closestEnemy.transform);
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                if(closestEnemy == null)
+                {
+                    closestEnemy = enemies[i];
+                }
+                else if(Vector3.Distance(transform.position, enemies[i].position) < Vector3.Distance(transform.position,closestEnemy.position))
+                {
+                    closestEnemy = enemies[i];
+                }
+            }
+
+            transform.LookAt(closestEnemy);
+        }
+        else if (enemies.Count == 0)
+        {
+            closestEnemy = null;
         }
 	} 
 }
