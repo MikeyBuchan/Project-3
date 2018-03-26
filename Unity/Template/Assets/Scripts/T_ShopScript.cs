@@ -70,6 +70,7 @@ public class T_ShopScript : MonoBehaviour
             fundsUI.GetComponent<Text>().text = "Funds : " + inventory.funds;
         }
     }
+
     public void BuySniperTower()
     {
         if(player.GetComponent<T_Inventory>().funds >= sniperTowerCost)
@@ -81,6 +82,7 @@ public class T_ShopScript : MonoBehaviour
             fundsUI.GetComponent<Text>().text = "Funds : " + inventory.funds;
         }
     }
+
     public void BuyMachineGunTower()
     {
         if(player.GetComponent<T_Inventory>().funds >= machinegunTowerCost)
