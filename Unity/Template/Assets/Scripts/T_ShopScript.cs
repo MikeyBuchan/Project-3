@@ -12,13 +12,12 @@ public class T_ShopScript : MonoBehaviour
     private T_Inventory inventory;
     public GameObject shopCamera;
     public float shopRange;
+    public float funds;
 
     private bool inShop = false;
     public GameObject nearShopText;
 
-    public int bombTowerCost;
-    public int sniperTowerCost;
-    public int machinegunTowerCost;
+    public List<GameObject> towers = new List<GameObject>();
 
     void Start()
     {
@@ -30,6 +29,8 @@ public class T_ShopScript : MonoBehaviour
 
     void Update()
     {
+        funds = inventory.funds;
+
         if (Vector3.Distance(transform.position, player.transform.position) <= shopRange)
         {
             nearShopText.SetActive(true);
@@ -92,6 +93,14 @@ public class T_ShopScript : MonoBehaviour
 
             player.GetComponent<T_Inventory>().funds -= machinegunTowerCost;
             fundsUI.GetComponent<Text>().text = "Funds : " + inventory.funds;
+        }
+    }
+
+    public void BuyTower(GameObject tower)
+    {
+        if (tower == towers[0])
+        {
+
         }
     }
 }

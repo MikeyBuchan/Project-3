@@ -5,15 +5,20 @@ using UnityEngine;
 public class R_TowerVars : MonoBehaviour {
     [Header("Funds")]
     public int cost;
-    public int moneyBackAfterDestroy;
+    public int moneyBackPercentage;
 
-    [Header("Normal damage")]
-    public float dmg;
-    
-    [Header("Splash damage")]
-    public bool doesSplashDmg;
+    [Header("Damage and health")]
+    public float health;
+    public float mainDmg;
+    public float fireRateInSeconds;
     public float splashRadius;
-    public Vector2 minMaxDmg;
+
+    [Header("Tower element")]
+    public bool isElectric;
+    public bool isWater;
+    public bool isWind;
+    public bool isFire;
+
 
    
 }
