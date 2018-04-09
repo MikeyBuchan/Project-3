@@ -10,7 +10,6 @@ public class B_EnemyMovement : MonoBehaviour
     private NavMeshAgent agent;
     public Transform navTarget;
     private Vector3 v = new Vector3(0, 0, 1);
-    public float movSpeed;
 
 	void Start () 
 	{
@@ -22,7 +21,7 @@ public class B_EnemyMovement : MonoBehaviour
 	void Update () 
 	{
         agent.SetDestination(navTarget.position);
-        transform.Translate(v * movSpeed * Time.deltaTime);
+        transform.Translate(v * Time.deltaTime);
 	}
 
     public void OnTriggerEnter(Collider o)
