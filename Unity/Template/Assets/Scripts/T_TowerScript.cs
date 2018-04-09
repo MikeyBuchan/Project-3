@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class T_TowerScript : MonoBehaviour
 {
+    private R_TowerVars towerVars;
+
     public Transform closestEnemy;
     public List<Transform> enemies;
+
+    private float timer;
+
+    private void Start()
+    {
+        towerVars = new R_TowerVars();
+    }
 
     private void OnTriggerEnter(Collider c)
     {      
@@ -40,10 +49,22 @@ public class T_TowerScript : MonoBehaviour
             }
 
             transform.LookAt(closestEnemy);
+
+            timer += Time.deltaTime;
+            if(timer >= towerVars.fireRateInSeconds)
+            {
+                ShootEnemy(towerVars.mainDmg);
+                timer = 0;
+            }
         }
         else if (enemies.Count == 0)
         {
             closestEnemy = null;
         }
 	} 
+
+    void ShootEnemy(float damage)
+    {
+        closestEnemy.GetComponent<B_EnemyMovement>().health -= damage;
+    }
 }
