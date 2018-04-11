@@ -66,6 +66,6 @@ public class T_TowerScript : MonoBehaviour
     void ShootEnemy(float damage)
     {
         closestEnemy.GetComponent<B_EnemyMovement>().health -= damage;
-        print("Fired");
+        print("Fired. did " + damage + " damage");
     }
 }
