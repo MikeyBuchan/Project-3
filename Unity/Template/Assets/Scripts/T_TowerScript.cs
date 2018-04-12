@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class T_TowerScript : MonoBehaviour
 {
-    private R_TowerVars towerVars;
+    public R_TowerVars towerVars;
 
     public Transform closestEnemy;
     public List<Transform> enemies;
@@ -13,7 +13,6 @@ public class T_TowerScript : MonoBehaviour
 
     private void Start()
     {
-        towerVars = new R_TowerVars();
     }
 
     private void OnTriggerEnter(Collider c)
@@ -34,6 +33,7 @@ public class T_TowerScript : MonoBehaviour
 
     void Update () 
 	{
+        print(towerVars.debugTest);
         if(enemies.Count > 0)
         {
             for (int i = 0; i < enemies.Count; i++)
@@ -66,6 +66,7 @@ public class T_TowerScript : MonoBehaviour
     void ShootEnemy(float damage)
     {
         closestEnemy.GetComponent<B_EnemyMovement>().health -= damage;
-        print("Fired. did " + damage + " damage");
+        print("Tried to fire at " + closestEnemy);
+        print("Fired, did " + damage + " damage");
     }
 }

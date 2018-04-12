@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class R_TowerVars : MonoBehaviour {
+    public string debugTest;
+        
     [Header("Funds")]
     public int cost;
     public int moneyBackPercentage;
