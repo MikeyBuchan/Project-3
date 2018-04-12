@@ -22,6 +22,12 @@ public class B_EnemyMovement : MonoBehaviour
 	{
         agent.SetDestination(navTarget.position);
         transform.Translate(v * Time.deltaTime);
+
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+            print(gameObject + " died");
+        }
 	}
 
     public void OnTriggerEnter(Collider o)
