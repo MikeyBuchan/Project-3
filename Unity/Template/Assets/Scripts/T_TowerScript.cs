@@ -4,16 +4,10 @@ using UnityEngine;
 
 public class T_TowerScript : MonoBehaviour
 {
-    public R_TowerVars towerVars;
-
     public Transform closestEnemy;
     public List<Transform> enemies;
 
     private float timer;
-
-    private void Start()
-    {
-    }
 
     private void OnTriggerEnter(Collider c)
     {      
@@ -33,7 +27,6 @@ public class T_TowerScript : MonoBehaviour
 
     void Update () 
 	{
-        print(towerVars.debugTest);
         if(enemies.Count > 0)
         {
             for (int i = 0; i < enemies.Count; i++)
@@ -51,9 +44,9 @@ public class T_TowerScript : MonoBehaviour
             transform.LookAt(closestEnemy);
 
             timer += Time.deltaTime;
-            if(timer >= towerVars.fireRateInSeconds)
+            if(timer >= GetComponentInParent<R_TowerVars>().fireRateInSeconds)
             {
-                ShootEnemy(towerVars.mainDmg);
+                ShootEnemy(GetComponentInParent<R_TowerVars>().mainDmg);
                 timer = 0;
             }
         }
@@ -66,7 +59,6 @@ public class T_TowerScript : MonoBehaviour
     void ShootEnemy(float damage)
     {
         closestEnemy.GetComponent<B_EnemyMovement>().health -= damage;
-        print("Tried to fire at " + closestEnemy);
         print("Fired, did " + damage + " damage");
     }
 }
