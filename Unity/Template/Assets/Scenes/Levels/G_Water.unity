@@ -821,7 +821,7 @@ Light:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 754953094}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 0.10845588, g: 0.86764705, b: 0.23935093, a: 1}
@@ -2074,15 +2074,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: d642b3a8a7fdce6429665ca9d2434201, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.41
+      value: 0.39
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d642b3a8a7fdce6429665ca9d2434201, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 150.19408
+      value: 150.19
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d642b3a8a7fdce6429665ca9d2434201, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -112.92
+      value: -115.1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d642b3a8a7fdce6429665ca9d2434201, type: 3}
       propertyPath: m_LocalRotation.x
