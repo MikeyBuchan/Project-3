@@ -54,5 +54,5 @@ MonoBehaviour:
   waveOnGoing: 1
   enemies: 5
   enemy: {fileID: 1009132099395878, guid: 67fb0a359330e6648929ad46c7a20893, type: 2}
-  waves: 0
-  timeBetweenEnemies: 2
+  waves: 1
+  timeBetweenEnemies: 0.5

@@ -24,7 +24,7 @@ public class T_EnemySpawner : MonoBehaviour
 
     void Update () 
 	{
-        time = Time.deltaTime * timerEnabled;
+        time += Time.deltaTime * timerEnabled;
 
         if(time >= timeBetweenEnemies && enemiesSpawned < enemiesInWave)
         {
