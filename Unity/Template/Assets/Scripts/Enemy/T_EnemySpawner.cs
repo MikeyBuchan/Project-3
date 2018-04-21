@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class T_EnemySpawner : MonoBehaviour
 {
@@ -17,10 +18,7 @@ public class T_EnemySpawner : MonoBehaviour
     private int enemiesSpawned;
     private int enemiesInWave;
 
-    private void Start()
-    {
-        StartWave(enemies);
-    }
+    public GameObject UI;
 
     void Update () 
 	{
@@ -37,6 +35,12 @@ public class T_EnemySpawner : MonoBehaviour
         {
             timerEnabled = 0;
             waveOnGoing = false;
+            UI.SetActive(true);
+        }
+
+        if(Input.GetButton("Jump") == true && waveOnGoing == false)
+        {
+            StartWave(enemies);
         }
 	}
 
@@ -46,5 +50,6 @@ public class T_EnemySpawner : MonoBehaviour
 
         timerEnabled = 1;
         waveOnGoing = true;
+        UI.SetActive(false);
     }
 }
