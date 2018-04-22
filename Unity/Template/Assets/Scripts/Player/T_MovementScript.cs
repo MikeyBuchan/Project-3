@@ -19,11 +19,11 @@ public class T_MovementScript : MonoBehaviour
     void Update()
     {
         //rotates the camera when pressing Q or E.
-        if (Input.GetButton("E") == true && Input.GetButton("Q") == false)
+        if (Input.GetButton("Q") == true && Input.GetButton("E") == false)
         {
             transform.Rotate(-cameraRotate * Time.deltaTime);
         }
-        if (Input.GetButton("Q") == true && Input.GetButton("E") == false)
+        if (Input.GetButton("E") == true && Input.GetButton("Q") == false)
         {
             transform.Rotate(cameraRotate * Time.deltaTime);
         }

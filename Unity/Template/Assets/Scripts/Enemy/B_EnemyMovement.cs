@@ -41,4 +41,12 @@ public class B_EnemyMovement : MonoBehaviour
     {
         navTarget = GameObject.FindGameObjectWithTag("EnemyFinish").transform;
     }
+
+    void OnCollisionEnter(Collision c)
+    {
+        if (c.gameObject.tag == "Bullet")
+        {
+            Destroy(c.gameObject);
+        }
+    }
 }
