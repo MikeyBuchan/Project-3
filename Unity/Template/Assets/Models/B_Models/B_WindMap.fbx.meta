@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: aa36f1c433f03174bbb8b5765c9205a5
-timeCreated: 1521122520
+guid: 8c3e0e1b554271e448f26176e0019f5d
+timeCreated: 1524418885
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: No Name
+    2100000: Material.002
     2300000: //RootNode
     3300000: //RootNode
     4300000: BezierCurve.001
