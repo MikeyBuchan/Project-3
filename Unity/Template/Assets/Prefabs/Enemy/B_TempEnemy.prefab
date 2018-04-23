@@ -22,10 +22,10 @@ GameObject:
   - component: {fileID: 33293156775477036}
   - component: {fileID: 54550058861462686}
   - component: {fileID: 23687780610052940}
-  - component: {fileID: 64991112341153534}
   - component: {fileID: 195180938261424368}
   - component: {fileID: 135358298532000038}
   - component: {fileID: 114014537734286528}
+  - component: {fileID: 65575116509120394}
   m_Layer: 0
   m_Name: B_TempEnemy
   m_TagString: Untagged
@@ -102,8 +102,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!64 &64991112341153534
-MeshCollider:
+--- !u!65 &65575116509120394
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -111,11 +111,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 48a1972d30edbc04198a0939e76a4fcd, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.9255249, y: 2.4744353, z: 0.42823628}
+  m_Center: {x: 0.00777662, y: 1.2444022, z: -0.022236792}
 --- !u!114 &114014537734286528
 MonoBehaviour:
   m_ObjectHideFlags: 1

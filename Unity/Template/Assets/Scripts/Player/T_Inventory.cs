@@ -18,7 +18,7 @@ public class T_Inventory : MonoBehaviour
 
     void Start()
     {
-
+        
     }
 
     void Update()
